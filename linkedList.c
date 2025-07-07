@@ -28,6 +28,30 @@ void insert_beg()
         head = ptr1;
     }
 }
+
+void insert_end()
+{
+if(head==NULL){
+    ptr = (struct node *)malloc(sizeof(struct node));
+        printf("\n Enter the element1 ");
+        scanf("%d", &ptr->i);
+        head = ptr;
+        ptr->next = NULL;
+}
+else{
+    ptr1 = (struct node *)malloc(sizeof(struct node));
+        printf("\n Enter the element2 ");
+        scanf("%d", &ptr1->i);
+        ptr = head;
+        while(ptr->next == NULL){
+            ptr = ptr->next;
+
+        }
+        ptr->next = ptr1;
+        ptr1->next = NULL;
+}
+}
+
 int main()
 {
     int c = 0;
@@ -54,8 +78,10 @@ int main()
         c = c+1;
     }
     insert_beg();
+    insert_end();
 
     ptr = head;
+    printf(" \n Linked List: \n ");
     while (ptr != NULL)
     {
         printf("%d  ", ptr->i);
